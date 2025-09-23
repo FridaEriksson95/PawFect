@@ -3,8 +3,19 @@ import { Link } from "react-router";
 const AboutPage = () => {
     return (
         <>
-        WELCOME TO PAWFECT <br />
-        <Link to ="/DogsPage">Dogpage</Link>
+       <h1 style={{fontSize: '28px', textAlign: 'center', fontFamily:'serif', fontWeight: 'bold',
+       paddingTop:'120px', paddingBottom:'20px'
+       }}>🐾 Välkommen till Pawfect – THE pawty place!🐾</h1>
+       <p style={{textAlign:'center', fontFamily:'serif', fontSize:'20px'}}>
+        På Pawfect tror vi att varje hund förtjänar sin egen showtime. <br />
+        Här får varje vovve glänsa, busa och visa sin charm! <br />
+        Möt knasiga personligheter, fluffiga hjältar och tokiga svansar i <br />
+        ett enda stort pawty place. Oavsett om din hund är en lugn kelgris <br />
+        eller en fullfjädrad kaosgremlin – här finns plats för alla. Med lek, <br />
+        bus och belly rubs på schemat är ingen dag är den andra lik. Vi fixar <br />
+        skratt, svansvift och en paw-sitiv dag varje dag! <br /><br />
+
+        Här är alla tassar välkomna!</p>
         </>
     )
 }

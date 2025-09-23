@@ -2,13 +2,16 @@ import { Link, Outlet } from 'react-router';
 import PawFect from '../images/PawFect.svg';
 import PawFectLogo from '../images/FectLogo.svg.svg';
 import dogFooter from '../images/dogFooter.png';
+import { useSearch } from './SearchContext';
 
 
 const RootLayout = () => {
+    const {search, setSearch} = useSearch();
+
     return(
         <div style={{ 
-            background: 'linear-gradient(to bottom,#357ABD, #ADD8E6)', 
-            minHeight: '100vh', height:'100%', width: '100%', paddingTop:'15px'
+            background: 'linear-gradient(to bottom,#83ACAE, #ADD8E6, #FFFFFF)', minHeight: '100vh', 
+            height:'100%', width: '100%', paddingTop:'15px', display:'flex', flexDirection:'column'
         }}>
         {/*HEADER*/}
         <header style={{
@@ -22,8 +25,12 @@ const RootLayout = () => {
             <div style={{ height: '0', width: '0', overflow: 'hidden' }}></div>
             </section>
             <section>
-                <input type="search" placeholder='Search' style={{
-                    padding: '8px 12px',marginRight:'170px', width: '260px', 
+                <input type="search" 
+                placeholder='Search' 
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                    style={{
+                    padding: '8px 12px',marginRight:'400px', width: '260px', 
                     border: '1px solid #ccc', borderRadius: '20px', outline: 'none', fontSize: '14px'}} />
             </section>
 
@@ -43,7 +50,7 @@ const RootLayout = () => {
         </header>
 
         {/*MAIN INNEHÅLL*/}
-        <main style={{minHeight: '80vh', padding: '20px'}}>
+        <main style={{flex: 1, overflowY:'auto'}}>
             <Outlet />
         </main>
 

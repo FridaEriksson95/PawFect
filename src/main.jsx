@@ -7,6 +7,8 @@ import AboutPage from './components/AboutPage.jsx'
 import DogsPage from './components/DogsPage.jsx'
 import DogDetailPage from './components/DogDetailPage.jsx'
 import RootLayout from './components/RootLayout.jsx'
+import { SearchProvider } from './components/SearchContext.jsx'
+import ContactPage from './components/ContactPage.jsx'
 
 const router = createHashRouter([
   {
@@ -22,8 +24,12 @@ const router = createHashRouter([
     element: <DogsPage />
   },
   {
-    path: "/DogDetailPage",
+    path: "/DogDetailPage/:chipNumber",
     element: <DogDetailPage />
+  },
+  {
+    path: "/ContactPage",
+    element: <ContactPage />
   }
 ]
 }
@@ -31,6 +37,8 @@ const router = createHashRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <SearchProvider>
     <RouterProvider router={router} />
+    </SearchProvider>
   </StrictMode>,
 )
