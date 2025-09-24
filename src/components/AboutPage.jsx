@@ -1,12 +1,11 @@
 import { Link } from "react-router";
+import '../index.css'
 
 const AboutPage = () => {
     return (
         <>
-       <h1 style={{fontSize: '28px', textAlign: 'center', fontFamily:'serif', fontWeight: 'bold',
-       paddingTop:'120px', paddingBottom:'20px'
-       }}>🐾 Välkommen till Pawfect – THE pawty place!🐾</h1>
-       <p style={{textAlign:'center', fontFamily:'serif', fontSize:'20px'}}>
+       <h1 style={{paddingTop:'120px' }}>🐾 Välkommen till Pawfect – THE pawty place!🐾</h1>
+       <p id='about'>
         På Pawfect tror vi att varje hund förtjänar sin egen showtime. <br />
         Här får varje vovve glänsa, busa och visa sin charm! <br />
         Möt knasiga personligheter, fluffiga hjältar och tokiga svansar i <br />
