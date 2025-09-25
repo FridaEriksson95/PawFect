@@ -1,12 +1,13 @@
 import { Link, NavLink, Outlet } from 'react-router';
 import PawFect from '../images/PawFect.svg';
-import PawFectLogo from '../images/FectLogo.svg.svg';
+import PawFectLogo from '../images/PawFectLogo.svg';
 import dogFooter from '../images/dogFooter.png';
-import { useSearch } from './SearchContext';
+import { useSearch } from '../context/SearchContext';
 import '../app.css';
 
 
 const RootLayout = () => {
+    //get search from SearchContext
     const {search, setSearch} = useSearch();
 
     return(
@@ -19,16 +20,11 @@ const RootLayout = () => {
                 zIndex: 2, 
                 minWidth: '100px'}}>
             <img src={PawFectLogo} alt="pawfect logo" 
-            style={{height: '110px',
+            style={{height: '7rem',
             position: 'absolute', 
-            top: '-65px', 
-            left: '-10px', 
+            top: '-4.5rem', 
+            left: '-1.2rem', 
             zIndex: 3}}/>
-
-            <div style={{ 
-                height: '0', 
-                width: '0', 
-                overflow: 'hidden'}}></div>
             </section>
 
             <section id='search'>
@@ -59,7 +55,7 @@ const RootLayout = () => {
             </nav>
         </header>
 
-        {/*MAIN INNEHÅLL*/}
+        {/*MAIN CONTENT*/}
         <main style={{flex: 1, overflowY:'auto'}}>
             <Outlet />
         </main>

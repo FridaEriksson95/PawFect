@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+//So we only catch API Data one time and then store in cache memory for less API fetches
 const DogContext = createContext();
 
 export const DogProvider = ({children}) => {

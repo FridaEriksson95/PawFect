@@ -6,10 +6,12 @@ const DogDetailPage = () => {
     const { chipNumber } = useParams();
     const [dog, setDog] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [dogNotFound, setDogNotFound] = useState(false);
     const [dogbookEntries, setDogbookEntries] = useState([]);
     const [inputText, setInputText] = useState('');
     const navigate = useNavigate();
 
+    //fetches the dog using its chipnumber that are uniqe for each dog
     useEffect(() => {
         const fetchDogs = async () => {
             try{
@@ -23,6 +25,14 @@ const DogDetailPage = () => {
                 const dogsArray = data.record?.record || [];
                 const selectedDog = dogsArray.find(dog => dog.chipNumber === chipNumber); 
                 setDog(selectedDog)
+
+            //timer to make sure its able to load before 'no dog' shows up
+                if(!selectedDog) {
+                    const timer = setTimeout(() => {
+                        setDogNotFound(true);
+                    }, 5000);
+                    return () => clearTimeout(timer);
+                }
 
                 const savedEntries = localStorage.getItem(`dogbookEntries_${chipNumber}`);
                 if(savedEntries) {
@@ -41,6 +51,8 @@ const DogDetailPage = () => {
         setInputText(e.target.value);
     }
 
+    /*Enter key to post comment in dogBook diary and store them with localStorage in cache, fetch 
+    todays date for each post*/ 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter' && inputText.trim() !== '') {
             const today = new Date().toLocaleDateString('sv-SE');
@@ -52,13 +64,22 @@ const DogDetailPage = () => {
         }
     }
 
+    //To see owner details about each dog
     const showOwnerAlert = () => {
         const fullName = `${dog.owner.name} ${dog.owner.lastName}`;
         const phoneNumber = dog.owner.phoneNumber;
         alert(`Ägare: ${fullName}\nTelefonnummer: ${phoneNumber}`);
     }
 
-    if (!dog){
+    if (loading){
+        return (
+            <div style={{
+                padding:'20px', color:'#333', display:'flex', gap:'10px'}}>
+                   Laddar...
+                </div>
+        );}
+
+    if (!dog || dogNotFound){
         return (
             <div style={{
                 padding:'20px', color:'#333', display:'flex', gap:'10px'}}>
@@ -78,11 +99,13 @@ const DogDetailPage = () => {
              <div style={{
                 display:'flex', gap:'100px'}}>
              <h1 style={{marginTop:'100px'}}>{dog.name}</h1>
+        {/*sets choosen pic if no pic is found for the dog*/}
              <img id="detailImg"
                 src={dog.img || noPic} alt={dog.name} 
                 onError={(e) => {e.target.src = noPic;}}/>
             </div>
 
+        {/*Added some more attributes to each dog to try for fun on JsonBin*/}
             <div id="detailDogColumn">
                 <p><strong>Ålder:</strong> {dog.age}</p>
                 <p><strong>Ras:</strong> {dog.breed}</p>
@@ -102,7 +125,10 @@ const DogDetailPage = () => {
                     <button style={{ 
                         backgroundColor:'rgba(250, 250, 250, 0.60)', 
                         color: 'purple'}}>♡ Lägg till som favorit</button>
-                    <button style={{ backgroundColor:'transparent', 
+
+            {/*Create state for dogName to catch at contact Page */}
+                    <button onClick={() => navigate('/ContactPage', { state: { dogName: dog.name}})}
+                    style={{ backgroundColor:'transparent', 
                         border:'1px solid rgba(250, 250, 250, 0.60)', 
                         color: 'black'}}>💬 Skicka meddelande om {dog.name}</button>
                 </div>
