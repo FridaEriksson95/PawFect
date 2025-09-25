@@ -72,7 +72,33 @@ const DogDetailPage = () => {
 
     return (
         <div className="detailContainer">
-                <div id='buttonDiv'>
+             <button onClick={() => navigate('/DogsPage')} 
+             style={{margintop:'10px', padding:'2px 10px'}}>↩</button>
+
+             <div style={{
+                display:'flex', gap:'100px'}}>
+             <h1 style={{marginTop:'100px'}}>{dog.name}</h1>
+             <img id="detailImg"
+                src={dog.img || noPic} alt={dog.name} 
+                onError={(e) => {e.target.src = noPic;}}/>
+            </div>
+
+            <div id="detailDogColumn">
+                <p><strong>Ålder:</strong> {dog.age}</p>
+                <p><strong>Ras:</strong> {dog.breed}</p>
+                <p><strong>Kön:</strong> {dog.sex}</p>
+                <p><strong>ChipNr:</strong> {dog.chipNumber}</p>
+                <p><strong>Ägare:</strong>
+                <span style={{
+                    color: '#3498db', cursor: 'pointer', 
+                    textDecoration: 'underline'}} onClick={showOwnerAlert}> 
+                    {dog.owner.name}</span></p>
+                <p><strong>Hat objekt:</strong> {dog.hateobject}</p>
+                <p><strong>Favorit aktivitet:</strong> {dog.favoriteactivity}</p>
+                <p><strong>Superpower:</strong> {dog.superpower}</p>
+            </div>
+
+            <div id='buttonDiv'>
                     <button style={{ 
                         backgroundColor:'rgba(250, 250, 250, 0.60)', 
                         color: 'purple'}}>♡ Lägg till som favorit</button>
@@ -102,32 +128,6 @@ const DogDetailPage = () => {
                         onChange={handleInputChange}
                         onKeyDown={handleKeyDown}/>
                  </div>
-
-             <button onClick={() => navigate('/DogsPage')} 
-             style={{margintop:'10px', padding:'2px 10px'}}>↩</button>
-
-             <div style={{
-                display:'flex', gap:'100px'}}>
-             <h1 style={{marginTop:'100px'}}>{dog.name}</h1>
-             <img id="detailImg"
-                src={dog.img || noPic} alt={dog.name} 
-                onError={(e) => {e.target.src = noPic;}}/>
-            </div>
-
-            <div id="detailDogColumn">
-                <p><strong>Ålder:</strong> {dog.age}</p>
-                <p><strong>Ras:</strong> {dog.breed}</p>
-                <p><strong>Kön:</strong> {dog.sex}</p>
-                <p><strong>ChipNr:</strong> {dog.chipNumber}</p>
-                <p><strong>Ägare:</strong>
-                <span style={{
-                    color: '#3498db', cursor: 'pointer', 
-                    textDecoration: 'underline'}} onClick={showOwnerAlert}> 
-                    {dog.owner.name}</span></p>
-                <p><strong>Hat objekt:</strong> {dog.hateobject}</p>
-                <p><strong>Favorit aktivitet:</strong> {dog.favoriteactivity}</p>
-                <p><strong>Superpower:</strong> {dog.superpower}</p>
-            </div>
      </div>
     )
 }

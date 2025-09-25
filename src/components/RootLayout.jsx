@@ -72,7 +72,7 @@ const RootLayout = () => {
 
         <footer>
             <section id='logoFooter'>
-                <div style={{ flexShrink: 0}}>
+                <div>
                     <img src={PawFect} alt="pawfect logo text" 
                     style={{ height: '85px', marginBottom: '10px'}}/>
                 </div>
@@ -99,7 +99,7 @@ const RootLayout = () => {
             <div>
                 <h2>Resources</h2>
                 <nav className='links'>
-                <Link to="/AdvicePage">Best advices</Link>
+                <Link to="/AdvicesPage">Best advices</Link>
                 <Link to="/ContactPage">Support</Link>
                 </nav>
             </div>

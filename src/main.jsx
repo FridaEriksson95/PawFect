@@ -11,6 +11,8 @@ import ContactPage from './components/ContactPage.jsx'
 import ServicesPage from './components/ServicesPage.jsx'
 import TeamsPage from './components/TeamsPage.jsx'
 import { DogProvider } from './components/DogContext.jsx'
+import AdvicesPage from './components/AdvicesPage.jsx'
+import CollabsPage from './components/CollabsPage.jsx'
 
 const router = createHashRouter([
   {
@@ -40,6 +42,14 @@ const router = createHashRouter([
   {
     path: "/TeamsPage",
     element: <TeamsPage />
+  },
+  {
+    path: "/AdvicesPage",
+    element: <AdvicesPage />
+  },
+  {
+    path: "/CollabsPage",
+    element: <CollabsPage />
   }
 ]
 }

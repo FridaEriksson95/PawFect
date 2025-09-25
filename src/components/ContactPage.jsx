@@ -30,7 +30,7 @@ const ContactPage = () => {
             <form onSubmit={handleSubmit} style={{
                 display:'flex', 
                 flexDirection:'column', 
-                gap:'15px', flex:1}}>
+                gap:'0.5rem', flex:1}}>
 
                 <div>
                     <label>Email: </label>
@@ -50,7 +50,7 @@ const ContactPage = () => {
                 </div>
 
                 <button type="submit" style={{
-                    padding:'12px 25px', 
+                    padding:'0.5rem 1.2rem', 
                     background:'#FFFFFF', 
                     color:'#000', 
                     border:'none', 
