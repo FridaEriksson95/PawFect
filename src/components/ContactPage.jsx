@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import '../index.css'
+import { useLocation } from "react-router";
 
 const ContactPage = () => {
+    //get dogName state from DogDetail button 'send message'
+    const { state } = useLocation();
 
     const [formData, setFormData] = useState({
         email: "",
         subject: "",
         message: "",
     })
+
+    useEffect(() => {
+        if(state?.dogName) {
+            setFormData((prevState) => ({
+                ...prevState, 
+                subject: `Meddelande om ${state.dogName}`,
+            }))
+        }
+    }, [state]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -35,18 +47,18 @@ const ContactPage = () => {
                 <div>
                     <label>Email: </label>
                     <input className="contactInput" type="text" name="email" value={formData.email} 
-                    onChange={handleChange} placeholder="Ange din mejladress" />
+                    onChange={handleChange} placeholder="Ange din mejladress" required/>
                 </div>
 
                 <div>
                     <label>Ämne: </label>
                     <input className="contactInput" type="text" name="subject" value={formData.subject} 
-                    onChange={handleChange} placeholder="Ange ämne"/>
+                    onChange={handleChange} placeholder="Ange ämne" required/>
                 </div>
                 <div>
                     <label>Meddelande: </label>
                     <input className="contactInputMessage" type="text" name="message" value={formData.message} 
-                    onChange={handleChange}  placeholder="Skriv ditt meddelande här.."/>
+                    onChange={handleChange}  placeholder="Skriv ditt meddelande här.." required/>
                 </div>
 
                 <button type="submit" style={{

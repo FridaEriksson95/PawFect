@@ -1,3 +1,4 @@
+/*COLORS*/
 :root{
   --lightgray: #ccc;
   --whiteish: #ddd;
@@ -110,6 +111,7 @@ h2 {
   font-size: 13px;
 }
 
+/*CSS for smaller devices like phones*/
 @media (max-width: 768px){
   header{
     padding: 0.4rem 9rem 0 10rem;
@@ -119,7 +121,7 @@ h2 {
   }
 
   #search {
-    width: 100%;
+    width: 50%;
     margin-right: 0;
     margin-top: 0.6rem;
   }
@@ -136,6 +138,12 @@ h2 {
   h2, .links{
     font-size: 10.5px;
   }
+
+  nav .nav-link.active {
+    margin-top: 0.2rem;
+    padding-bottom: 0;
+    padding-top: 0.01rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -149,6 +157,11 @@ h2 {
   }
 
   nav .nav-link{
-    padding: 0.1rem
+    padding: 0.1rem;
+    margin: 0.1rem;
+  }
+
+  nav .nav-link.active {
+    padding: 0.1rem;
   }
 }
