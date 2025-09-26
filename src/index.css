@@ -103,6 +103,7 @@ label{
     width: 100%; 
     max-width: 24%;
     height: auto;
+    max-height: 20rem;
     object-fit: cover;
     border-radius: 10px;
 }

@@ -58,6 +58,14 @@ header{
   position: relative;
 }
 
+#headerLogo{
+  height: 7rem;
+  position: absolute;
+  top: -4.5rem;
+  left: -1.2rem;
+  z-index: 3;
+}
+
 footer {
   background-color:white; 
   padding: 0.6rem;
@@ -105,11 +113,24 @@ h2 {
   padding: 0.2rem 1rem;
 }
 
+#logoFooterImg{
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+
+#footerLinks{
+  display: flex; 
+  gap: 3rem;
+  flex-grow: 1;
+  margin-top: 0.7rem;
+}
+
 #rights{
   color:var(--gray);
   font-weight: bold; 
   font-size: 13px;
 }
+
 
 /*CSS for smaller devices like phones*/
 @media (max-width: 768px){
@@ -120,6 +141,11 @@ h2 {
     margin-top: 1rem;
   }
 
+  #headerLogo{
+   left: 50%;
+   transform: translateX(-50%);
+  }
+
   #search {
     width: 50%;
     margin-right: 0;
@@ -127,12 +153,21 @@ h2 {
   }
 
   #logoFooter{
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 0.4rem;
   }
 
   footer{
     padding: 0.3rem;
+  }
+
+  #logoFooterImg{
+    height: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  #footerLinks{
+    gap: 1.8rem;
   }
   
   h2, .links{
@@ -163,5 +198,9 @@ h2 {
 
   nav .nav-link.active {
     padding: 0.1rem;
+  }
+
+  #footerLinks{
+    gap: 1.2rem;
   }
 }
