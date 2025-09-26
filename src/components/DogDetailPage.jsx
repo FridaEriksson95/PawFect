@@ -94,11 +94,11 @@ const DogDetailPage = () => {
     return (
         <div className="detailContainer">
              <button onClick={() => navigate('/DogsPage')} 
-             style={{margintop:'10px', padding:'2px 10px'}}>↩</button>
+             style={{margintop:'0.5rem', padding:'0.1rem 0.6rem'}}>↩</button>
 
              <div style={{
-                display:'flex', gap:'100px'}}>
-             <h1 style={{marginTop:'100px'}}>{dog.name}</h1>
+                display:'flex', gap:'6rem'}}>
+             <h1 style={{marginTop:'10rem'}}>{dog.name}</h1>
         {/*sets choosen pic if no pic is found for the dog*/}
              <img id="detailImg"
                 src={dog.img || noPic} alt={dog.name} 

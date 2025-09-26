@@ -18,13 +18,8 @@ const RootLayout = () => {
             <section style={{ 
                 position: 'relative', 
                 zIndex: 2, 
-                minWidth: '100px'}}>
-            <img src={PawFectLogo} alt="pawfect logo" 
-            style={{height: '7rem',
-            position: 'absolute', 
-            top: '-4.5rem', 
-            left: '-1.2rem', 
-            zIndex: 3}}/>
+                minWidth: '7rem'}}>
+            <img id='headerLogo' src={PawFectLogo} alt="pawfect logo"/>
             </section>
 
             <section id='search'>
@@ -35,7 +30,7 @@ const RootLayout = () => {
             </section>
 
             <nav style={{ 
-                display: 'flex', gap: '15px'}}>
+                display: 'flex', gap: '1rem'}}>
 
                 <NavLink to="/" 
                 className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}> 
@@ -69,13 +64,10 @@ const RootLayout = () => {
         <footer>
             <section id='logoFooter'>
                 <div>
-                    <img src={PawFect} alt="pawfect logo text" 
-                    style={{ height: '85px', marginBottom: '10px'}}/>
+                    <img id='logoFooterImg' src={PawFect} alt="pawfect logo text"/>
                 </div>
 
-            <div style={{ 
-                display: 'flex', gap:'80px', 
-                flexGrow: 1}}>
+            <div id='footerLinks'>
                 <div>
                     <h2>About us</h2>
                     <nav className='links'>
