@@ -98,7 +98,7 @@ const DogDetailPage = () => {
 
              <div style={{
                 display:'flex', gap:'6rem'}}>
-             <h1 style={{marginTop:'10rem'}}>{dog.name}</h1>
+             <h1>{dog.name}</h1>
         {/*sets choosen pic if no pic is found for the dog*/}
              <img id="detailImg"
                 src={dog.img || noPic} alt={dog.name} 
